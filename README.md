@@ -1,2 +1,11 @@
-# Mintic-P32-C4-DM_Techodevices
-TrabajoMintic_apliacionesMoviles
+# Mision Tic 2022 P32 Technodevices
+
+Repositorio para el proyecto TECHNO DEVICES.
+
+### Integrantes ###
+
+* Sandra Jimena Orozco Lagos
+* Jose Andrés Sanabria Arias
+* Andrés David Beltrán Rojas
+* Cesar Leonardo Gonzalez Pinzon
+* Michael Hernández Castillo
