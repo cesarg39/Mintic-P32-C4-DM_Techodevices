@@ -8,4 +8,4 @@ Repositorio para el proyecto TECHNO DEVICES.
 * Jose Andrés Sanabria Arias
 * Andrés David Beltrán Rojas
 * Cesar Leonardo Gonzalez Pinzon
-* Michael Hernández Castillo
+* Michael Gerardo Hernández Castillo
