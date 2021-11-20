@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cardCornerRadius">5dp</dimen>
+    <dimen name="cardLayoutMargin">10dp</dimen>
+    <dimen name="logoHeight">100dp</dimen>
+    <dimen name="defaultLayoutMargin">10dp</dimen>
+    <dimen name="textSizeContent">20sp</dimen>
+    <dimen name="fotoTiendaHeight">300dp</dimen>
+    <dimen name="ItemCommentsUser">20sp</dimen>
+    <dimen name="itemTextScore">20sp</dimen>
+    <dimen name="ItemCommentsScore">20sp</dimen>
+    <dimen name="itemCommentsComment">20sp</dimen>
+    <dimen name="cardElevation">10dp</dimen>
+    <dimen name="heightImageProduct">300dp</dimen>
+    <dimen name="sizeNameProduct">20sp</dimen>
+    <dimen name="sizePriceProduct">16sp</dimen>
+    <dimen name="sizeDescriptionProduct">17sp</dimen>
+    <dimen name="heightUserImage">160dp</dimen>
+    <dimen name="sizeNameUser">20sp</dimen>
+    <dimen name="sizeAddressUser">20sp</dimen>
+    <dimen name="sizePhoneUser">20sp</dimen>
+    <dimen name="sizeEmailUser">20sp</dimen>
+    <dimen name="ibHeight">160dp</dimen>
+</resources>

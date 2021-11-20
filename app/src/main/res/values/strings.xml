@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Techno devices</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textHome">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur.
+    </string>
+    <string name="hintComment">Comentario</string>
+    <string name="btBuyProduct">AGREGAR AL CARRITO</string>
+    <string name="textDescriptionProduct">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum
+    dolore eu fugiat nulla pariatur.
+    </string>
+    <string name="hintName">Nombre</string>
+    <string name="hintAdress">Dirección</string>
+    <string name="hintPhone">Teléfono</string>
+    <string name="hintEmail">Correo</string>
+    <string name="hintAddress">Dirección</string>
+</resources>
