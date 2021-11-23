@@ -1,0 +1,2 @@
+Para clonar el repo hay que colocar
+git clone https://github.com/cesarg39/Mintic-P32-C4-DM_Techodevices
