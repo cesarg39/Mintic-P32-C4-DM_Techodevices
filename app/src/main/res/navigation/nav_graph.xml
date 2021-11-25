@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/signUpFragment2">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.HomeFragment"
@@ -64,5 +64,14 @@
         android:name="com.misiontic2022.technodevices.view.ui.fragments.AdminDetailDialogFragment"
         android:label="AdminDetailFragmentDialog"
         tools:layout="@layout/fragment_admin_detail_dialog"/>
+    <fragment
+        android:id="@+id/signUpFragment2"
+        android:name="com.misiontic2022.technodevices.view.ui.fragments.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>

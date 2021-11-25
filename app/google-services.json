@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "818992615120",
+    "project_id": "techno-devices",
+    "storage_bucket": "techno-devices.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818992615120:android:bd331f7be46602fcad18d5",
+        "android_client_info": {
+          "package_name": "com.misiontic2022.technodevices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818992615120-nbi9hc7p8vipjeh1p9v6achnarkm3mf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Quw9uuyGHtff2KeyWimV4Ja4ItFrtLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818992615120-nbi9hc7p8vipjeh1p9v6achnarkm3mf0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

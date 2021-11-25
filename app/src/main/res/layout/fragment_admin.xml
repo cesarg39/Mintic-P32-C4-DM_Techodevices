@@ -79,6 +79,12 @@
                         android:textSize="@dimen/sizeEmailUser"
                         android:textColor="@color/primaryTextColor"/>
 
+                    <Button
+                        android:id="@+id/button_edit_admin"
+                        android:text="Editar"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
