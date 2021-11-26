@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_adminFragment_to_adminDetailFragmentDialog"
             app:destination="@id/adminDetailFragmentDialog" />
+        <action
+            android:id="@+id/action_adminFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <dialog
