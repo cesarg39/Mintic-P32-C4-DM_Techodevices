@@ -20,7 +20,7 @@ class AdminFragment : Fragment(R.layout.fragment_admin) {
         binding = FragmentAdminBinding.bind(view)
         binding.buttonEditAdmin.setOnClickListener {
             findNavController().navigate(R.id.action_adminFragment_to_adminDetailFragmentDialog)
-        }
+        } 
 
         binding.buttonLogout.setOnClickListener {
 
