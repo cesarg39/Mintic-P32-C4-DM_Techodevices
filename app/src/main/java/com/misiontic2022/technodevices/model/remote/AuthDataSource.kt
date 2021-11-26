@@ -21,4 +21,8 @@ class AuthDataSource {
         }
         return authResult.user
     }
+
+    suspend fun SignOut(){
+
+    }
 }

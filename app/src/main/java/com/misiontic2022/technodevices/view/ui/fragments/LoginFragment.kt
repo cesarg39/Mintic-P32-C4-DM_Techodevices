@@ -35,11 +35,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun isUserLoggedIn() {
         firebaseAuth.currentUser?.let { user ->
-            //if (user.displayName.isNullOrEmpty()) {
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            //} else {
-            //    findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
-            //}
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
 
@@ -62,7 +58,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun validateCredentials(email: String, password: String) {
         if (email.isEmpty()) {
             binding.etEmail.error = "E-Mail is empty"
-
             return
         }
         if (password.isEmpty()) {
@@ -80,11 +75,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
                 is Result.Success -> {
                     binding.progressBar.hide()
-                    //if (it.data?.displayName.isNullOrEmpty()) {
-                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                    //} else {
-                    //    findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
-                    //}
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 }
                 is Result.Failure -> {
                     binding.progressBar.hide()
