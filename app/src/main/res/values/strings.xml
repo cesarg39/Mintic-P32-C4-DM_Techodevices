@@ -25,4 +25,8 @@
     <string name="hintPhone">Teléfono</string>
     <string name="hintEmail">Correo</string>
     <string name="hintAddress">Dirección</string>
+    <string name="email">correo electrónico</string>
+    <string name="password">contraseña</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="SignUpText">¿No tiene una cuenta? Registrarse</string>
 </resources>
