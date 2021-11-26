@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.signUpFragment2-> {
                     binding.bnvMenu.hide()
                 }
-
+                R.id.loginFragment->{
+                    binding.bnvMenu.hide()
+                }
                 else ->{
                     binding.bnvMenu.show()
                 }
