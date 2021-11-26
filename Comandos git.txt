@@ -16,4 +16,4 @@ GIT commit -m “mensaje”
 Donde mensaje será la descripción que aparecerá en el Sprint 2
 
 Subir el commit al repositorio
-GIT push origin nombreDeLaRamaEnLaQueSeTrabajo
+GIT push origin nombreDeLaRamaEnLaQueSeTrabajo.
