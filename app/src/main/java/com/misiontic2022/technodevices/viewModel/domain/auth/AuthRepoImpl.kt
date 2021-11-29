@@ -16,5 +16,9 @@ class AuthRepoImpl(val dataSource: AuthDataSource) : AuthRepo {
         phone: String
     ): FirebaseUser? = dataSource.signUp(email, password, name, address, phone)
 
+    override suspend fun signOut() {
+        dataSource.signOut()
+    }
+
 
 }

@@ -3,6 +3,7 @@ package com.misiontic2022.technodevices.model.remote
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.misiontic2022.technodevices.model.models.User
 import kotlinx.coroutines.tasks.await
 
@@ -22,7 +23,10 @@ class AuthDataSource {
         return authResult.user
     }
 
-    suspend fun SignOut(){
-
+    suspend fun signOut(){
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            FirebaseAuth.getInstance().signOut()
+        }
     }
 }

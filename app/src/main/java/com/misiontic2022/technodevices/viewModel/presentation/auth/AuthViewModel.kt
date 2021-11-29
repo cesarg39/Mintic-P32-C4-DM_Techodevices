@@ -26,6 +26,14 @@ class AuthViewModel(private val repo: AuthRepo) : ViewModel() {
                 emit(Result.Failure(e))
             }
         }
+    fun signOut() = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(Result.Success(repo.signOut()))
+        } catch (e: Exception) {
+            emit(Result.Failure(e))
+        }
+    }
 }
 
 
