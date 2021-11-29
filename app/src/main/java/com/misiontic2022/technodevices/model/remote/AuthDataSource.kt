@@ -18,7 +18,7 @@ class AuthDataSource {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).await()
         authResult.user?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("users").document(uid)
-                .set(User(email, name, address, phone)).await()
+                .set(User(name, email, address, phone)).await()
         }
         return authResult.user
     }
