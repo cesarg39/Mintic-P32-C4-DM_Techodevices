@@ -1,18 +1,13 @@
 package com.misiontic2022.technodevices.view.ui.fragments
 
-import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.misiontic2022.technodevices.R
-import com.misiontic2022.technodevices.core.Result
-import com.misiontic2022.technodevices.core.hide
-import com.misiontic2022.technodevices.core.show
+import com.misiontic2022.technodevices.core.*
 import com.misiontic2022.technodevices.databinding.FragmentAdminBinding
 import com.misiontic2022.technodevices.model.remote.AuthDataSource
 import com.misiontic2022.technodevices.viewModel.domain.auth.AuthRepoImpl
@@ -20,6 +15,7 @@ import com.misiontic2022.technodevices.viewModel.presentation.auth.AuthViewModel
 import com.misiontic2022.technodevices.viewModel.presentation.auth.AuthViewModelFactory
 
 class AdminFragment : Fragment(R.layout.fragment_admin) {
+
     private lateinit var binding: FragmentAdminBinding
     private val viewModel by viewModels<AuthViewModel> {
         AuthViewModelFactory(
@@ -32,7 +28,8 @@ class AdminFragment : Fragment(R.layout.fragment_admin) {
         binding = FragmentAdminBinding.bind(view)
         binding.buttonEditAdmin.setOnClickListener {
             findNavController().navigate(R.id.action_adminFragment_to_adminDetailFragmentDialog)
-        }
+        } 
+
         binding.buttonSignOut.setOnClickListener {
             viewModel.signOut().observe(viewLifecycleOwner, {
                 when (it) {
