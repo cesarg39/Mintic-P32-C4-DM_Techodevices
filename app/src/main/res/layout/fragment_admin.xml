@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.fragments.AdminFragment">
 
     <ScrollView
@@ -11,103 +11,102 @@
         android:layout_height="match_parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/cardLayoutMargin"
+            app:cardCornerRadius="@dimen/cardCornerRadius"
+            app:cardElevation="@dimen/cardElevation">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/cardCornerRadius"
-                app:cardElevation="@dimen/cardElevation"
-                android:layout_margin="@dimen/cardLayoutMargin">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:gravity="center_horizontal"
+                    android:text="Mi perfil"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="Mi perfil"
-                        android:textColor="@color/primaryTextColor"
-                        android:textSize="34sp"
-                        android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/heightUserImage"
+                    android:layout_margin="@dimen/defaultLayoutMargin"
+                    android:src="@drawable/user_image_example" />
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/heightUserImage"
-                        android:src="@drawable/user_image_example"
-                        android:layout_margin="@dimen/defaultLayoutMargin"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Nombre"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/sizeNameUser"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Nombre"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal"
-                        android:textSize="@dimen/sizeNameUser"
-                        android:textColor="@color/primaryTextColor"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Dirección"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/sizeAddressUser"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Dirección"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal"
-                        android:textSize="@dimen/sizeAddressUser"
-                        android:textColor="@color/primaryTextColor"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Teléfono"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/sizePhoneUser"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Teléfono"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal"
-                        android:textSize="@dimen/sizePhoneUser"
-                        android:textColor="@color/primaryTextColor"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Correo"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/sizeEmailUser"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Correo"
-                        android:textStyle="bold"
-                        android:gravity="center_horizontal"
-                        android:textSize="@dimen/sizeEmailUser"
-                        android:textColor="@color/primaryTextColor"/>
+                <Button
+                    android:id="@+id/button_edit_admin"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Editar" />
 
-                    <Button
-                        android:id="@+id/button_edit_admin"
-                        android:text="Editar"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"/>
-
-                    <ProgressBar
-                        android:id="@+id/progress_bar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:visibility="gone"/>
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone" />
 
 
-                </LinearLayout>
+            </LinearLayout>
 
 
+        </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/button_sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/logoutColor"
+            android:text="Cerrar Sesión" />
 
-            <Button
-                android:id="@+id/button_sign_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/logoutColor"
-                android:text="Cerrar Sesión" />
-
-        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

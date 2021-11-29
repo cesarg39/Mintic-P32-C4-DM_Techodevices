@@ -39,7 +39,7 @@ class AdminFragment : Fragment(R.layout.fragment_admin) {
                     }
                     is Result.Success -> {
                         binding.progressBar.hide()
-                        findNavController().navigate(R.id.action_adminFragment_to_loginFragment)
+                        findNavController().navigate(R.id.loginFragment)
                     }
                     is Result.Failure -> {
                         binding.progressBar.hide()
