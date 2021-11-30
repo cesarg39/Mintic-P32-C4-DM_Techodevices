@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.misiontic2022.technodevices.core.Result
+import com.misiontic2022.technodevices.model.models.User
 import com.misiontic2022.technodevices.viewModel.domain.profile.ProfileRepo
 import kotlinx.coroutines.Dispatchers
 
@@ -12,6 +13,15 @@ class ProfileViewModel (private val repo: ProfileRepo) : ViewModel() {
         emit(Result.Loading())
         try {
             emit(Result.Success(repo.getProfileData()))
+        } catch (e: Exception) {
+            emit(Result.Failure(e))
+        }
+    }
+
+    fun setProfileData(profile: User) = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(Result.Success(repo.setProfileData(profile)))
         } catch (e: Exception) {
             emit(Result.Failure(e))
         }
