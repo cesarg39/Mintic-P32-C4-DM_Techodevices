@@ -26,7 +26,6 @@ class ProfileDataSource {
     }
 suspend fun setProfileData(profile:User){
     val user = FirebaseAuth.getInstance().currentUser
-    val profile: User = User()
     user?.let {
         FirebaseFirestore.getInstance().collection("users").document(user.uid)
             .set(profile).await()

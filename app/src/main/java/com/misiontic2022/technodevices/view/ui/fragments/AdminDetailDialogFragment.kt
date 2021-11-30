@@ -31,7 +31,9 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAdminDetailDialogBinding.bind(view)
 
-        binding.etAddressAdmin.isEnabled = false
+
+
+        getData()
 
         binding.btnEditProfile.setOnClickListener {
             setData()
@@ -75,9 +77,10 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
                 is Result.Success -> {
                     binding.progressBar.hide()
                     binding.etNameAdmin.setText(result.data.name)
-                    binding.etAddressAdmin.setText(result.data.email)
+                    binding.etEmailAdmin.setText(result.data.email)
                     binding.etPhoneAdmin.setText(result.data.phone)
                     binding.etAddressAdmin.setText(result.data.address)
+                    binding.etEmailAdmin.isEnabled = false
                 }
                 is Result.Failure -> {
                     binding.progressBar.hide()
@@ -86,6 +89,7 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
                 }
             }
         })
+
     }
 
 
