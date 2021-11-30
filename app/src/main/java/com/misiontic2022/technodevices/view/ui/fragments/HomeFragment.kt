@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.misiontic2022.technodevices.R
+import com.misiontic2022.technodevices.databinding.FragmentHomeBinding
+import com.misiontic2022.technodevices.databinding.FragmentOrderBinding
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +25,7 @@ class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private val list = mutableListOf<CarouselItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +33,22 @@ class HomeFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        val carousel: ImageCarousel = findViewById(R.id.carouselProducto)
+        //val carousel: ImageCarousel = this.requireView().findViewById(R.id.carouselProducto)
+        list.add(CarouselItem("https://technodevices-fe.herokuapp.com/img/banner1.059f4c55.png"))
+        list.add(CarouselItem("https://technodevices-fe.herokuapp.com/img/banner2.36a00eb9.png"))
+        list.add(CarouselItem("https://technodevices-fe.herokuapp.com/img/banner3.d13afcf5.png"))
+
+        carousel.addData(list)
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
+
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
