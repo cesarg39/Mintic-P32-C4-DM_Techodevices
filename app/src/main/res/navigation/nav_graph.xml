@@ -18,18 +18,19 @@
         android:name="com.misiontic2022.technodevices.view.ui.fragments.OrderFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_order" >
-        <action
-            android:id="@+id/action_orderFragment_to_commentsFragment"
-            app:destination="@id/commentsFragment" />
+
         <action
             android:id="@+id/action_orderFragment_to_orderDetailFragmentDialog"
             app:destination="@id/orderDetailFragmentDialog" />
+        <action
+            android:id="@+id/action_orderFragment_to_createProductFragment"
+            app:destination="@id/createProductFragment" />
     </fragment>
     <fragment
-        android:id="@+id/commentsFragment"
-        android:name="com.misiontic2022.technodevices.view.ui.fragments.CommentsFragment"
+        android:id="@+id/createProductFragment"
+        android:name="com.misiontic2022.technodevices.view.ui.fragments.CreateProductFragment"
         android:label="fragment_comments"
-        tools:layout="@layout/fragment_comments" >
+        tools:layout="@layout/fragment_create_product" >
         <action
             android:id="@+id/action_commentsFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
