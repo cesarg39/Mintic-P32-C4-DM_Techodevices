@@ -31,8 +31,6 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAdminDetailDialogBinding.bind(view)
 
-
-
         getData()
 
         binding.btnEditProfile.setOnClickListener {
@@ -46,26 +44,30 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
         val phone = binding.etPhoneAdmin.text.toString()
         val email = binding.etEmailAdmin.text.toString()
 
-        val profileUser = User(name = name,address = address,phone = phone, email = email)
+        if (!validateCredentials(name,address,phone,email)){
+            val profileUser = User(name = name,address = address,phone = phone, email = email)
 
-        viewModelProfileData.setProfileData(profileUser).observe(viewLifecycleOwner, {
-            result->
-            when(result) {
-                is Result.Loading ->{
-                    binding.progressBar.show()
-                    binding.etNameAdmin.isEnabled = false
-                    binding.etAddressAdmin.isEnabled = false
-                    binding.etPhoneAdmin.isEnabled = false
+            viewModelProfileData.setProfileData(profileUser).observe(viewLifecycleOwner, {
+                    result->
+                when(result) {
+                    is Result.Loading ->{
+                        binding.progressBar.show()
+                        binding.etNameAdmin.isEnabled = false
+                        binding.etAddressAdmin.isEnabled = false
+                        binding.etPhoneAdmin.isEnabled = false
+                    }
+                    is Result.Success ->{
+                        findNavController().navigateUp()
+                    }
+                    is Result.Failure ->{
+                        Toast.makeText(requireContext(),"Error ${result.exception}", Toast.LENGTH_SHORT).show()
+                        binding.progressBar.hide()
+                    }
                 }
-                is Result.Success ->{
-                    findNavController().navigateUp()
-                }
-                is Result.Failure ->{
-                    Toast.makeText(requireContext(),"Error ${result.exception}", Toast.LENGTH_SHORT).show()
-                    binding.progressBar.hide()
-                }
-            }
-        })
+            })
+        }
+
+
     }
 
     private fun getData() {
@@ -90,6 +92,26 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
             }
         })
 
+    }
+
+    private fun validateCredentials(name: String, address: String, phone: String, email: String):Boolean {
+        if (name.isEmpty()) {
+            binding.etNameAdmin.error = "E-Mail is empty"
+            return true
+        }
+        if (address.isEmpty()) {
+            binding.etAddressAdmin.error = "Address is empty"
+            return true
+        }
+        if (phone.isEmpty()) {
+            binding.etPhoneAdmin.error = "Phone is empty"
+            return true
+        }
+        if (email.isEmpty()) {
+            binding.etEmailAdmin.error = "Email is empty"
+            return true
+        }
+        return false
     }
 
 
