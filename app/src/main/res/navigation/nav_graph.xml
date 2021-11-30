@@ -43,8 +43,8 @@
         android:label="fragment_admin"
         tools:layout="@layout/fragment_admin" >
         <action
-            android:id="@+id/action_adminFragment_to_adminDetailFragmentDialog"
-            app:destination="@id/adminDetailFragmentDialog" />
+            android:id="@+id/action_adminFragment_to_adminDetailDialogFragment"
+            app:destination="@id/adminDetailDialogFragment" />
     </fragment>
 
     <dialog
@@ -59,11 +59,6 @@
         android:label="CommentsDetailDialog"
         tools:layout="@layout/fragment_comments_detail_dialog"/>
 
-    <dialog
-        android:id="@+id/adminDetailFragmentDialog"
-        android:name="com.misiontic2022.technodevices.view.ui.fragments.AdminDetailDialogFragment"
-        android:label="AdminDetailFragmentDialog"
-        tools:layout="@layout/fragment_admin_detail_dialog"/>
     <fragment
         android:id="@+id/signUpFragment2"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.SignUpFragment"
@@ -85,5 +80,10 @@
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/adminDetailDialogFragment"
+        android:name="com.misiontic2022.technodevices.view.ui.fragments.AdminDetailDialogFragment"
+        android:label="fragment_admin_detail_dialog"
+        tools:layout="@layout/fragment_admin_detail_dialog" />
 
 </navigation>

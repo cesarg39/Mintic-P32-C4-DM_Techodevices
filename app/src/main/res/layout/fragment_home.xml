@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.fragments.HomeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="@dimen/cardCornerRadius"
-                android:layout_margin="@dimen/cardLayoutMargin">
+                android:layout_margin="@dimen/cardLayoutMargin"
+                app:cardCornerRadius="@dimen/cardCornerRadius">
 
 
                 <LinearLayout
@@ -36,13 +37,27 @@
                         android:src="@drawable/logo_horizontal_2" />
 
                     <TextView
-                        android:id="@+id/tvHome"
+                        android:id="@+id/tv_products_relevant"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/defaultLayoutMargin"
-                        android:gravity="fill_horizontal"
-                        android:text="@string/textHome"
-                        android:textSize="@dimen/textSizeContent" />
+                        android:gravity="center"
+                        android:text="Productos destacados"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                        android:id="@+id/carousel_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="91dp"
+                        app:autoPlay="true"
+                        app:autoPlayDelay="3000"
+                        app:carouselGravity="CENTER"
+                        app:imageScaleType="fitCenter"
+                        app:showBottomShadow="false"
+                        app:showCaption="false"
+                        app:showIndicator="false"
+                        app:showNavigationButtons="false"
+                        app:showTopShadow="false" />
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -59,4 +74,4 @@
         </LinearLayout>
 
     </ScrollView>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

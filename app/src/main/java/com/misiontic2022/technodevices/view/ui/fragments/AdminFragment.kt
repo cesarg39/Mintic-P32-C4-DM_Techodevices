@@ -37,7 +37,7 @@ class AdminFragment : Fragment(R.layout.fragment_admin) {
         binding = FragmentAdminBinding.bind(view)
         getData()
         binding.buttonEditAdmin.setOnClickListener {
-            findNavController().navigate(R.id.action_adminFragment_to_adminDetailFragmentDialog)
+            findNavController().navigate(R.id.action_adminFragment_to_adminDetailDialogFragment)
         }
         binding.buttonSignOut.setOnClickListener {
             signOut()
