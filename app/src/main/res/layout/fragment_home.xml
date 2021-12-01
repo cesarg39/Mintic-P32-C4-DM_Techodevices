@@ -1,77 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_home_scene"
     tools:context=".view.ui.fragments.HomeFragment">
 
-    <ScrollView
+    <RelativeLayout
+        android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_margin="@dimen/defaultLayoutMargin"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_horizontal_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/cardLayoutMargin"
-                app:cardCornerRadius="@dimen/cardCornerRadius">
+    <TextView
+        android:id="@+id/tv_products_relevant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Productos destacados"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/logoHeight"
-                        android:layout_margin="@dimen/defaultLayoutMargin"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/logo_horizontal_2" />
-
-                    <TextView
-                        android:id="@+id/tv_products_relevant"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Productos destacados"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-                        android:id="@+id/carousel_product"
-                        android:layout_width="match_parent"
-                        android:layout_height="91dp"
-                        app:autoPlay="true"
-                        app:autoPlayDelay="3000"
-                        app:carouselGravity="CENTER"
-                        app:imageScaleType="fitCenter"
-                        app:showBottomShadow="false"
-                        app:showCaption="false"
-                        app:showIndicator="false"
-                        app:showNavigationButtons="false"
-                        app:showTopShadow="false" />
-
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/fotoTiendaHeight"
-                        android:layout_margin="@dimen/defaultLayoutMargin"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/foto_tienda" />
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel_product"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        app:autoPlay="true"
+        app:autoPlayDelay="3000"
+        app:carouselGravity="CENTER"
+        app:imageScaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_products_relevant"
+        app:showBottomShadow="false"
+        app:showCaption="false"
+        app:showIndicator="false"
+        app:showNavigationButtons="false"
+        app:showTopShadow="false" />
 
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_products"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carousel_product"
+        app:layout_constraintVertical_bias="0.0"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
-        </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

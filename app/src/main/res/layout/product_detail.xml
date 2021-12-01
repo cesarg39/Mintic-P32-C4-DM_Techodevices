@@ -3,34 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="16dp">
 
-    <ImageView
-        android:layout_width="122dp"
-        android:layout_height="96dp"
-        android:layout_margin="@dimen/defaultLayoutMargin"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="100dp"
-        tools:src="@drawable/product_example_image" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imProduct"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        tools:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:showDividers="middle">
 
         <TextView
+            android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="5dp"
-            tools:text="Producto melo" />
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="Producto 1" />
+
         <TextView
+            android:id="@+id/txt_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp"
-            tools:text="Precio" />
+            tools:text="$151.000"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
-
 </LinearLayout>
