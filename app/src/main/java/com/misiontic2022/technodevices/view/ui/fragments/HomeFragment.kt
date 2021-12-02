@@ -51,7 +51,6 @@ class HomeFragment : Fragment(R.layout.fragment_home),ProductAdapter.OnProductCl
     }
 
     override fun onProductClick(product: Product) {
-        Toast.makeText(context, product.title, Toast.LENGTH_SHORT).show()
     }
 
 }

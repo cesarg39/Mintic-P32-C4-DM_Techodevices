@@ -5,13 +5,9 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.os.Binder
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -22,7 +18,7 @@ import com.misiontic2022.technodevices.model.remote.ProductDataSource
 import com.misiontic2022.technodevices.viewModel.domain.product.ProductRepoImpl
 import com.misiontic2022.technodevices.viewModel.presentation.product.ProductViewModel
 import com.misiontic2022.technodevices.viewModel.presentation.product.ProductViewModelFactory
-import com.misiontic2022.technodevices.core.Result
+import com.misiontic2022.technodevices.core.*
 
 class AddProductFragment : Fragment(R.layout.fragment_add_product) {
     private val viewModel by viewModels<ProductViewModel> {
@@ -65,13 +61,16 @@ class AddProductFragment : Fragment(R.layout.fragment_add_product) {
                 .observe(viewLifecycleOwner, {
                     when (it) {
                         is Result.Loading -> {
+                            binding.progressBar.show()
                             Toast.makeText(requireContext(), "Subiendo foto", Toast.LENGTH_LONG)
                                 .show()
                         }
                         is Result.Success -> {
                             findNavController().navigateUp()
+                            binding.progressBar.hide()
                         }
                         is Result.Failure -> {
+                            binding.progressBar.hide()
                             Toast.makeText(
                                 requireContext(),
                                 "Error: ${it.exception}",

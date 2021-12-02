@@ -3,6 +3,7 @@ package com.misiontic2022.technodevices.model.remote
 import android.graphics.Bitmap
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.FirebaseStorage
 import com.misiontic2022.technodevices.model.models.Product
 import kotlinx.coroutines.tasks.await
@@ -11,10 +12,20 @@ import java.io.ByteArrayOutputStream
 import java.util.*
 
 class ProductDataSource {
-    suspend fun getLatestProduct(): Result<List<Product>> {
+    suspend fun getLatestProduct(myProducts: Boolean): Result<List<Product>> {
         val productList = mutableListOf<Product>()
-        val querySnapshot = FirebaseFirestore.getInstance().collection("products").get().await()
-        for (product in querySnapshot) {
+        var querySnapshot: QuerySnapshot? = null
+        if (myProducts) {
+            val user = FirebaseAuth.getInstance().currentUser
+            user?.let {
+                querySnapshot = FirebaseFirestore.getInstance().collection("products")
+                    .whereEqualTo("uid", user.uid).get().await()
+            }
+
+        } else {
+            querySnapshot = FirebaseFirestore.getInstance().collection("products").get().await()
+        }
+        for (product in querySnapshot!!) {
             product.toObject(Product::class.java).let {
                 productList.add(it)
             }
@@ -28,7 +39,7 @@ class ProductDataSource {
         val imageRef =
             FirebaseStorage.getInstance().reference.child("${user?.uid}/products/$randomName")
         val baos = ByteArrayOutputStream()
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
         val downloadUrl =
             imageRef.putBytes(baos.toByteArray()).await().storage.downloadUrl.await().toString()
         user?.let {
@@ -41,6 +52,12 @@ class ProductDataSource {
                     uid = it.uid
                 )
             )
+        }
+    }
+
+    suspend fun deleteProduct(product: Product) {
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
         }
     }
 }

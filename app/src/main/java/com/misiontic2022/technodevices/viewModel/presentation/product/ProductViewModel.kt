@@ -11,10 +11,10 @@ import com.misiontic2022.technodevices.model.models.Product
 
 class ProductViewModel(private val repo: ProductRepo) : ViewModel() {
     private lateinit var productList: Unit
-    fun getLatestProduct() = liveData(Dispatchers.IO) {
+    fun getLatestProduct(myProducts: Boolean = false) = liveData(Dispatchers.IO) {
         emit(Result.Loading())
         try {
-            productList = emit(repo.getLatestProduct())
+            productList = emit(repo.getLatestProduct(myProducts))
         } catch (e: Exception) {
             emit(Result.Failure(e))
         }
