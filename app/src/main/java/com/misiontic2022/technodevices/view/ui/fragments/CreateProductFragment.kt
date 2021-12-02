@@ -20,36 +20,64 @@ import com.misiontic2022.technodevices.viewModel.presentation.product.ProductVie
 import com.misiontic2022.technodevices.viewModel.presentation.product.ProductViewModelFactory
 
 
-class CreateProductFragment : Fragment(R.layout.fragment_create_product),MyProductsAdapter.OnProductClickListener {
+class CreateProductFragment : Fragment(R.layout.fragment_create_product),
+    MyProductsAdapter.OnProductClickListener {
     private lateinit var binding: FragmentCreateProductBinding
-    private val viewModel by viewModels<ProductViewModel>{
+    private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(ProductRepoImpl(ProductDataSource()))
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateProductBinding.bind(view)
-        viewModel.getLatestProduct(true).observe(viewLifecycleOwner, {result->
-            when(result){
-                is Result.Loading->{
-                    binding.progressBar.show()
-                }
-                is Result.Success->{
-                    binding.progressBar.hide()
-                    binding.rvProducts.adapter = MyProductsAdapter(result.data,this@CreateProductFragment)
-                }
-                is Result.Failure->{
-                    binding.progressBar.hide()
-                    Toast.makeText(requireContext(),"Error: ${result.exception.localizedMessage}",
-                        Toast.LENGTH_LONG).show()
-                }
-            }
-        })
+        showInfo()
         binding.buttonAddProduct.setOnClickListener {
             findNavController().navigate(R.id.action_createProductFragment_to_addProductFragment)
         }
     }
 
-    override fun onProductClick(product: Product, action: Int) {
+    private fun showInfo() {
+        viewModel.getLatestProduct(true).observe(viewLifecycleOwner, { result ->
+            when (result) {
+                is Result.Loading -> {
+                    binding.progressBar.show()
+                }
+                is Result.Success -> {
+                    binding.progressBar.hide()
+                    binding.rvProducts.adapter =
+                        MyProductsAdapter(result.data, this@CreateProductFragment)
+                }
+                is Result.Failure -> {
+                    binding.progressBar.hide()
+                    Toast.makeText(
+                        requireContext(), "Error: ${result.exception.localizedMessage}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        })
+    }
 
+    override fun onProductClick(product: Product, action: Int) {
+        if (action == 1) {
+            viewModel.deleteProduct(product).observe(viewLifecycleOwner, { result ->
+                when (result) {
+                    is Result.Loading -> {
+                        binding.progressBar.show()
+                    }
+                    is Result.Success -> {
+                        showInfo()
+                        binding.progressBar.hide()
+                    }
+                    is Result.Failure -> {
+                        binding.progressBar.hide()
+                        Toast.makeText(
+                            requireContext(), "Error: ${result.exception.localizedMessage}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            })
+        }
     }
 }

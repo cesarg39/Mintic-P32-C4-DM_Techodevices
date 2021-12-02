@@ -1,6 +1,8 @@
 package com.misiontic2022.technodevices.model.remote
 
 import android.graphics.Bitmap
+import android.util.Log
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
@@ -8,8 +10,10 @@ import com.google.firebase.storage.FirebaseStorage
 import com.misiontic2022.technodevices.model.models.Product
 import kotlinx.coroutines.tasks.await
 import com.misiontic2022.technodevices.core.Result
+import kotlinx.coroutines.currentCoroutineContext
 import java.io.ByteArrayOutputStream
 import java.util.*
+import kotlin.coroutines.coroutineContext
 
 class ProductDataSource {
     suspend fun getLatestProduct(myProducts: Boolean): Result<List<Product>> {
@@ -57,7 +61,11 @@ class ProductDataSource {
 
     suspend fun deleteProduct(product: Product) {
         val user = FirebaseAuth.getInstance().currentUser
-        user?.let {
+        Log.d("qweqr", "aaaaaaaaa")
+        val snapshot = FirebaseFirestore.getInstance().collection("products")
+            .whereEqualTo("title", product.title).whereEqualTo("uid", product.uid).whereEqualTo("photo", product.photo).get().await()
+        for (product in snapshot!!) {
+            product.reference.delete()
         }
     }
 }

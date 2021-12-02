@@ -28,6 +28,14 @@ class ProductViewModel(private val repo: ProductRepo) : ViewModel() {
             emit(Result.Failure(e))
         }
     }
+    fun deleteProduct(product: Product) = liveData(Dispatchers.Main) {
+        emit(Result.Loading())
+        try {
+            emit(Result.Success(repo.deleteProduct(product)))
+        } catch (e: Exception) {
+            emit(Result.Failure(e))
+        }
+    }
 }
 
 
