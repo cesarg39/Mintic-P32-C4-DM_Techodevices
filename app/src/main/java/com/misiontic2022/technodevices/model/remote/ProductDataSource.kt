@@ -1,19 +1,46 @@
 package com.misiontic2022.technodevices.model.remote
 
+import android.graphics.Bitmap
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.misiontic2022.technodevices.model.models.Product
 import kotlinx.coroutines.tasks.await
 import com.misiontic2022.technodevices.core.Result
+import java.io.ByteArrayOutputStream
+import java.util.*
 
 class ProductDataSource {
-    suspend fun getLatestProduct():Result<List<Product>>{
+    suspend fun getLatestProduct(): Result<List<Product>> {
         val productList = mutableListOf<Product>()
         val querySnapshot = FirebaseFirestore.getInstance().collection("products").get().await()
-        for (product in querySnapshot){
+        for (product in querySnapshot) {
             product.toObject(Product::class.java).let {
                 productList.add(it)
             }
         }
         return Result.Success(productList)
+    }
+
+    suspend fun addProduct(imageBitmap: Bitmap, product: Product) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val randomName = UUID.randomUUID().toString()
+        val imageRef =
+            FirebaseStorage.getInstance().reference.child("${user?.uid}/products/$randomName")
+        val baos = ByteArrayOutputStream()
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val downloadUrl =
+            imageRef.putBytes(baos.toByteArray()).await().storage.downloadUrl.await().toString()
+        user?.let {
+            FirebaseFirestore.getInstance().collection("products").add(
+                Product(
+                    photo = downloadUrl,
+                    title = product.title,
+                    price = product.price,
+                    description = product.description,
+                    uid = it.uid
+                )
+            )
+        }
     }
 }

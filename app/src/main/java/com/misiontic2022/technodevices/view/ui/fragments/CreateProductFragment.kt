@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.misiontic2022.technodevices.R
 import com.misiontic2022.technodevices.databinding.FragmentCreateProductBinding
 
@@ -14,5 +15,8 @@ class CreateProductFragment : Fragment(R.layout.fragment_create_product) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateProductBinding.bind(view)
+        binding.buttonAddProduct.setOnClickListener {
+            findNavController().navigate(R.id.action_createProductFragment_to_addProductFragment)
+        }
     }
 }

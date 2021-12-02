@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.misiontic2022.technodevices.core.BaseViewHolder
-import com.misiontic2022.technodevices.databinding.ProductDetailBinding
+import com.misiontic2022.technodevices.databinding.ItemProductBinding
 import com.misiontic2022.technodevices.model.models.Product
 
 class ProductAdapter(
@@ -20,7 +20,7 @@ class ProductAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
-            ProductDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val holder = ProductViewHolder(itemBinding, parent.context)
         return ProductViewHolder(itemBinding, parent.context)
     }
@@ -33,13 +33,16 @@ class ProductAdapter(
 
     override fun getItemCount(): Int = productList.size
     private inner class ProductViewHolder(
-        val binding: ProductDetailBinding,
+        val binding: ItemProductBinding,
         val context: Context
     ) : BaseViewHolder<Product>(binding.root) {
         override fun bind(item: Product) {
-            Glide.with(context).load(item.photo).centerCrop().into(binding.imProduct)
+            Glide.with(context).load(item.photo).fitCenter().into(binding.imProduct)
             binding.txtName.text = item.title
             binding.txtPrice.text = item.price
+            binding.cardViewProduct.setOnClickListener{
+                itemClickListener.onProductClick(productList[absoluteAdapterPosition])
+            }
         }
     }
 }
