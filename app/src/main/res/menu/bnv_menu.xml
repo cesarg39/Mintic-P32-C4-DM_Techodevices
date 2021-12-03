@@ -5,10 +5,6 @@
         android:title="Inicio"
         android:icon="@drawable/ic_outline_home_24"/>
     <item
-        android:id="@+id/orderFragment"
-        android:title="Mi pedido"
-        android:icon="@drawable/ic_outline_shopping_cart_24"/>
-    <item
         android:id="@+id/createProductFragment"
         android:title="Agregar"
         android:icon="@drawable/ic_baseline_add_circle_outline_24"/>
