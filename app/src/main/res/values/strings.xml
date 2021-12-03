@@ -29,4 +29,5 @@
     <string name="password">contraseña</string>
     <string name="sign_in">Iniciar sesión</string>
     <string name="SignUpText">¿No tiene una cuenta? Registrarse</string>
+    <string name="addComments">Añadir comentario</string>
 </resources>

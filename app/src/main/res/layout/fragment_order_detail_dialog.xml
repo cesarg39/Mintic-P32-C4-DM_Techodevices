@@ -47,6 +47,7 @@
                             android:layout_margin="@dimen/defaultLayoutMargin"/>
 
                         <TextView
+                            android:id="@+id/tv_product_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:text="Producto"
@@ -56,6 +57,7 @@
                             android:textColor="@color/primaryTextColor"/>
 
                         <TextView
+                            android:id="@+id/tv_product_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:text="$ 999.999"
@@ -64,12 +66,68 @@
                             android:textColor="@color/primaryTextColor"/>
 
                         <TextView
+                            android:id="@+id/tv_product_description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:text="@string/textDescriptionProduct"
                             android:gravity="center_horizontal"
                             android:textSize="@dimen/sizeDescriptionProduct"
                             android:textColor="@color/primaryTextColor"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Teléfono de contacto"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_horizontal"
+                            android:textSize="@dimen/sizeNameProduct"
+                            android:textColor="@color/primaryTextColor"/>
+
+                        <TextView
+                            android:id="@+id/tv_user_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="3212455895"
+                            android:gravity="center_horizontal"
+                            android:textSize="@dimen/sizePriceProduct"
+                            android:textColor="@color/primaryTextColor"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Correo electrónico"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+                            android:textSize="@dimen/sizeNameProduct"
+                            android:textColor="@color/primaryTextColor"/>
+
+                        <TextView
+                            android:id="@+id/tv_user_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="correo@gmail.com"
+                            android:gravity="center_horizontal"
+                            android:textSize="@dimen/sizePriceProduct"
+                            android:textColor="@color/primaryTextColor"/>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_item_comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="103dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_comments" />
+
+                        <Button
+                            android:id="@+id/btn_add_comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/addComments"/>
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

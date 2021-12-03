@@ -9,7 +9,7 @@
     <dimen name="ItemCommentsUser">20sp</dimen>
     <dimen name="itemTextScore">20sp</dimen>
     <dimen name="ItemCommentsScore">20sp</dimen>
-    <dimen name="itemCommentsComment">20sp</dimen>
+    <dimen name="itemCommentsComment">15sp</dimen>
     <dimen name="cardElevation">10dp</dimen>
     <dimen name="heightImageProduct">150dp</dimen>
     <dimen name="sizeNameProduct">20sp</dimen>
