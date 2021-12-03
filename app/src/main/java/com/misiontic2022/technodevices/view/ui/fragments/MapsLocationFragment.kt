@@ -104,9 +104,8 @@ class MapsLocationFragment : Fragment(R.layout.fragment_maps_location), OnMapRea
         }
     }
     override fun onMyLocationButtonClick(): Boolean {
-        Toast.makeText(requireContext(), "Boton pulsado", Toast.LENGTH_SHORT).show()
-
-        return true
+        //Toast.makeText(requireContext(), "Boton pulsado", Toast.LENGTH_SHORT).show()
+        return false
     }
     override fun onMyLocationClick(p0: Location) {
         Toast.makeText(requireContext(), "Estás en ${p0.latitude}, ${p0.longitude}", Toast.LENGTH_SHORT).show()
