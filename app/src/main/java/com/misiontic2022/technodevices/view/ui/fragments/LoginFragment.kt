@@ -41,11 +41,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun doLogin() {
         binding.btnSignIn.setOnClickListener {
-            /**val email = binding.etEmail.text.toString().trim()
+            val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             validateCredentials(email, password)
-            signIn(email, password)*/
-            findNavController().navigate(R.id.action_loginFragment_to_mapsLocationFragment)
+            signIn(email, password)
+            //findNavController().navigate(R.id.action_loginFragment_to_mapsLocationFragment)
         }
 
     }
