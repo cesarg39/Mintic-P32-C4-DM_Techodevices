@@ -56,7 +56,7 @@ class MapsLocationFragment : Fragment(R.layout.fragment_maps_location), OnMapRea
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        createMarker()
+        //createMarker()
         map.setOnMyLocationButtonClickListener(this)
         map.setOnMyLocationClickListener(this)
         enableMyLocation()
@@ -104,7 +104,8 @@ class MapsLocationFragment : Fragment(R.layout.fragment_maps_location), OnMapRea
         }
     }
     override fun onMyLocationButtonClick(): Boolean {
-        //Toast.makeText(requireContext(), "Boton pulsado", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Boton pulsado", Toast.LENGTH_SHORT).show()
+
         return false
     }
     override fun onMyLocationClick(p0: Location) {

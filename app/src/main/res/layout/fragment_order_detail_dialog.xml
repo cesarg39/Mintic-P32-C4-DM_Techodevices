@@ -71,15 +71,7 @@
                             android:textSize="@dimen/sizeDescriptionProduct"
                             android:textColor="@color/primaryTextColor"/>
 
-                        <Button
-                            android:id="@+id/btBuyProduct"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:background="@color/primaryDarkColor"
-                            android:text="@string/btBuyProduct"
-                            android:textColor="@color/primaryTextColor"
-                            android:layout_marginTop="@dimen/defaultLayoutMargin"/>
+
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
