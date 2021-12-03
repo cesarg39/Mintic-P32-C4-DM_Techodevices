@@ -45,6 +45,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = binding.etPassword.text.toString().trim()
             validateCredentials(email, password)
             signIn(email, password)
+            //findNavController().navigate(R.id.action_loginFragment_to_mapsLocationFragment)
         }
 
     }
