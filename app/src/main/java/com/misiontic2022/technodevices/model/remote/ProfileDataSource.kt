@@ -24,6 +24,24 @@ class ProfileDataSource {
         }
         return profile
     }
+
+    suspend fun getProfileSellerData(uid:String?): User {
+        val user = FirebaseAuth.getInstance().currentUser
+        val profile: User = User()
+        user?.let {
+            val querySnapShot =
+                FirebaseFirestore.getInstance().collection("users").document(uid.toString()).get().await()
+                    ?.let {
+                        if (it.exists()) {
+                            profile.name = it.getString("name")!!
+                            profile.address = it.getString("address")!!
+                            profile.email = it.getString("email")!!
+                            profile.phone = it.getString("phone")!!
+                        }
+                    }
+        }
+        return profile
+    }
 suspend fun setProfileData(profile:User){
     val user = FirebaseAuth.getInstance().currentUser
     user?.let {

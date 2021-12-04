@@ -17,12 +17,22 @@ import com.misiontic2022.technodevices.viewModel.presentation.product.ProductVie
 import com.misiontic2022.technodevices.viewModel.presentation.product.ProductViewModelFactory
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import com.misiontic2022.technodevices.core.*
+import com.misiontic2022.technodevices.model.remote.ProfileDataSource
+import com.misiontic2022.technodevices.viewModel.domain.profile.ProfileRepoImpl
+import com.misiontic2022.technodevices.viewModel.presentation.profile.ProfileViewModel
+import com.misiontic2022.technodevices.viewModel.presentation.profile.ProfileViewModelFactory
 
 class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnProductClickListener {
     private lateinit var binding: FragmentHomeBinding
 
     private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(ProductRepoImpl(ProductDataSource()))
+    }
+
+    private val viewModelProfileData by viewModels<ProfileViewModel> {
+        ProfileViewModelFactory(
+            ProfileRepoImpl(ProfileDataSource())
+        )
     }
 
     private val list = mutableListOf<CarouselItem>()
@@ -54,7 +64,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnProductC
 
     }
 
+
+
     override fun onProductClick(product: Product) {
+<<<<<<< HEAD
         Log.d("Movie", "onProductClick: $product")
         val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(
             product.photo,
@@ -63,7 +76,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnProductC
             product.description,
             product.id
         )
+=======
+        val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(product.photo,product.title,product.price,product.description,product.uid)
+>>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
         findNavController().navigate(action)
     }
+
+
 
 }

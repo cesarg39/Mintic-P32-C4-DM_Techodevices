@@ -79,7 +79,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:text="Teléfono de contacto"
+                            android:text="Teléfono de contacto"
                             android:textStyle="bold"
                             android:layout_marginTop="10dp"
                             android:gravity="center_horizontal"
@@ -90,7 +90,6 @@
                             android:id="@+id/tv_user_phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="3212455895"
                             android:gravity="center_horizontal"
                             android:textSize="@dimen/sizePriceProduct"
                             android:textColor="@color/primaryTextColor"/>
@@ -108,7 +107,6 @@
                             android:id="@+id/tv_user_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="correo@gmail.com"
                             android:gravity="center_horizontal"
                             android:textSize="@dimen/sizePriceProduct"
                             android:textColor="@color/primaryTextColor"/>
