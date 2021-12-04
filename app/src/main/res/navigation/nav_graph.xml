@@ -97,6 +97,18 @@
         <argument
             android:name="description"
             app:argType="string" />
+        <argument
+        android:name="id"
+        app:argType="string" />
+        <action
+            android:id="@+id/action_orderDetailDialogFragment_to_addCommentFragment"
+            app:destination="@id/addCommentFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addCommentFragment"
+        android:name="com.misiontic2022.technodevices.view.ui.fragments.AddCommentFragment"
+        android:label="add_comment_fragment"
+        tools:layout="@layout/add_comment_fragment"
+        />
 
 </navigation>

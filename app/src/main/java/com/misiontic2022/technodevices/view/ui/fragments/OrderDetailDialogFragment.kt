@@ -32,11 +32,11 @@ class OrderDetailDialogFragment : Fragment(R.layout.fragment_order_detail_dialog
     }
 
     private fun getData() {
-                    //binding.progressBar.show()
-                    Glide.with(this).load(args.photo).fitCenter().into(binding.imgProductData)
-                    binding.tvProductTitle.text = args.title
-                    binding.tvProductPrice.text = args.price
-                    binding.tvProductDescription.text = args.description
+        //binding.progressBar.show()
+        Glide.with(this).load(args.photo).fitCenter().into(binding.imgProductData)
+        binding.tvProductTitle.text = args.title
+        binding.tvProductPrice.text = args.price
+        binding.tvProductDescription.text = args.description
 
-                }
+    }
 }

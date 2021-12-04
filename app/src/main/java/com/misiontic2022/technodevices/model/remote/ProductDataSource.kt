@@ -48,26 +48,22 @@ class ProductDataSource {
         val downloadUrl =
             imageRef.putBytes(baos.toByteArray()).await().storage.downloadUrl.await().toString()
         user?.let {
-            FirebaseFirestore.getInstance().collection("products").add(
-                Product(
-                    photo = downloadUrl,
-                    title = product.title,
-                    price = product.price,
-                    description = product.description,
-                    uid = it.uid
-                )
-            )
+            val productDb = FirebaseFirestore.getInstance().collection("products").document()
+            val documentId = productDb.id
+            productDb.set(Product(
+                id = documentId,
+                photo = downloadUrl,
+                title = product.title,
+                price = product.price,
+                description = product.description,
+                uid = it.uid,
+            ))
+
         }
     }
 
     suspend fun deleteProduct(product: Product) {
-        val user = FirebaseAuth.getInstance().currentUser
-        Log.d("qweqr", "aaaaaaaaa")
-        val snapshot = FirebaseFirestore.getInstance().collection("products")
-            .whereEqualTo("title", product.title).whereEqualTo("uid", product.uid).whereEqualTo("photo", product.photo).get().await()
-        for (product in snapshot!!) {
-            product.reference.delete()
-        }
+        FirebaseFirestore.getInstance().collection("products").document(product.id).delete()
     }
 
     suspend fun getProductData(): Product {
