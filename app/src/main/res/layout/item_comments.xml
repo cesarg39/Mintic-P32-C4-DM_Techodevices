@@ -1,55 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/tvItemCommentsUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|top"
-                android:text="Usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:text="UserName"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/ItemCommentsUser"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvItemCommentsScore"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center|top"
-                android:text="5/5"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/ItemCommentsScore" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:layout_marginLeft="@dimen/defaultLayoutMargin">
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/ItemCommentsComment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left|top"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque id diam vel quam elementum pulvinar etiam non quam."
                 android:textSize="@dimen/itemCommentsComment"
-                android:textColor="@color/primaryTextColor"/>
-        </LinearLayout>
+                tools:text="@tools:sample/lorem"
+                android:textColor="@color/primaryTextColor"
+                android:layout_marginTop="5dp"/>
+
     </LinearLayout>
 </LinearLayout>

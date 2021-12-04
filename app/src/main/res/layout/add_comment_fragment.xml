@@ -6,7 +6,16 @@
     tools:context=".view.ui.fragments.AddCommentFragment"
     android:padding="16dp"
     android:orientation="vertical">
-
+    <RelativeLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,11 +24,13 @@
         android:text="Ingresa tu comentario"/>
 
     <EditText
+        android:id="@+id/et_comment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:inputType="textMultiLine"/>
     <Button
+        android:id="@+id/btn_add_comments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enviar comentario"/>
