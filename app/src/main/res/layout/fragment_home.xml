@@ -57,17 +57,20 @@
         app:showNavigationButtons="false"
         app:showTopShadow="false" />
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_products"
         android:layout_width="match_parent"
         android:layout_height="500dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carousel_product"
-        app:layout_constraintVertical_bias="0.0"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
+        app:layout_constraintVertical_bias="0.0">
 
 
     </androidx.recyclerview.widget.RecyclerView>

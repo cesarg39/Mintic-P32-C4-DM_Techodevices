@@ -22,10 +22,10 @@ import com.misiontic2022.technodevices.viewModel.domain.profile.ProfileRepoImpl
 import com.misiontic2022.technodevices.viewModel.presentation.profile.ProfileViewModel
 import com.misiontic2022.technodevices.viewModel.presentation.profile.ProfileViewModelFactory
 
-class HomeFragment : Fragment(R.layout.fragment_home),ProductAdapter.OnProductClickListener {
-    private lateinit var binding : FragmentHomeBinding
+class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnProductClickListener {
+    private lateinit var binding: FragmentHomeBinding
 
-    private val viewModel by viewModels<ProductViewModel>{
+    private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(ProductRepoImpl(ProductDataSource()))
     }
 
@@ -42,19 +42,21 @@ class HomeFragment : Fragment(R.layout.fragment_home),ProductAdapter.OnProductCl
         list.add(CarouselItem("https://technodevices-fe.herokuapp.com/img/banner1.059f4c55.png"))
         list.add(CarouselItem("https://technodevices-fe.herokuapp.com/img/banner2.36a00eb9.png"))
         list.add(CarouselItem("https://technodevices-fe.herokuapp.com/img/banner3.d13afcf5.png"))
-        viewModel.getLatestProduct().observe(viewLifecycleOwner, {result->
-            when(result){
-                is Result.Loading->{
+        viewModel.getLatestProduct().observe(viewLifecycleOwner, { result ->
+            when (result) {
+                is Result.Loading -> {
                     binding.progressBar.show()
                 }
-                is Result.Success->{
+                is Result.Success -> {
                     binding.progressBar.hide()
-                    binding.rvProducts.adapter = ProductAdapter(result.data,this@HomeFragment)
+                    binding.rvProducts.adapter = ProductAdapter(result.data, this@HomeFragment)
                 }
-                is Result.Failure->{
+                is Result.Failure -> {
                     binding.progressBar.hide()
-                    Toast.makeText(requireContext(),"Error: ${result.exception.localizedMessage}",
-                        Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(), "Error: ${result.exception.localizedMessage}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         })
@@ -65,7 +67,18 @@ class HomeFragment : Fragment(R.layout.fragment_home),ProductAdapter.OnProductCl
 
 
     override fun onProductClick(product: Product) {
+<<<<<<< HEAD
+        Log.d("Movie", "onProductClick: $product")
+        val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(
+            product.photo,
+            product.title,
+            product.price,
+            product.description,
+            product.id
+        )
+=======
         val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(product.photo,product.title,product.price,product.description,product.uid)
+>>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
         findNavController().navigate(action)
     }
 
