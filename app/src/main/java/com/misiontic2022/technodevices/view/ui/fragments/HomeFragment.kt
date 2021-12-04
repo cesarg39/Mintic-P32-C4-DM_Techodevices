@@ -67,18 +67,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), ProductAdapter.OnProductC
 
 
     override fun onProductClick(product: Product) {
-<<<<<<< HEAD
         Log.d("Movie", "onProductClick: $product")
-        val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(
-            product.photo,
-            product.title,
-            product.price,
-            product.description,
-            product.id
-        )
-=======
-        val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(product.photo,product.title,product.price,product.description,product.uid)
->>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
+        val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(product.photo,product.title,product.price,product.description,product.id, product.uid)
         findNavController().navigate(action)
     }
 

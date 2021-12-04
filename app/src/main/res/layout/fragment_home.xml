@@ -57,10 +57,7 @@
         app:showNavigationButtons="false"
         app:showTopShadow="false" />
 
-<<<<<<< HEAD
 
-=======
->>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_products"
         android:layout_width="match_parent"

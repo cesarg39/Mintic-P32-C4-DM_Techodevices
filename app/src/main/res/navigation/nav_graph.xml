@@ -8,7 +8,7 @@
         android:id="@+id/homeFragment"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_createProductFragment"
             app:destination="@id/createProductFragment" />
@@ -20,7 +20,7 @@
         android:id="@+id/createProductFragment"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.CreateProductFragment"
         android:label="fragment_comments"
-        tools:layout="@layout/fragment_create_product" >
+        tools:layout="@layout/fragment_create_product">
         <action
             android:id="@+id/action_commentsFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
@@ -32,7 +32,7 @@
         android:id="@+id/adminFragment"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.AdminFragment"
         android:label="fragment_admin"
-        tools:layout="@layout/fragment_admin" >
+        tools:layout="@layout/fragment_admin">
         <action
             android:id="@+id/action_adminFragment_to_adminDetailDialogFragment"
             app:destination="@id/adminDetailDialogFragment" />
@@ -42,13 +42,13 @@
         android:id="@+id/commentsDetailFragmentDialog"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.CommentsDetailDialogFragment"
         android:label="CommentsDetailDialog"
-        tools:layout="@layout/fragment_comments_detail_dialog"/>
+        tools:layout="@layout/fragment_comments_detail_dialog" />
 
     <fragment
         android:id="@+id/signUpFragment2"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment2_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -57,7 +57,7 @@
         android:id="@+id/loginFragment"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment2"
             app:destination="@id/signUpFragment2" />
@@ -98,22 +98,26 @@
             android:name="description"
             app:argType="string" />
         <argument
-<<<<<<< HEAD
-        android:name="id"
-        app:argType="string" />
+
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
         <action
             android:id="@+id/action_orderDetailDialogFragment_to_addCommentFragment"
             app:destination="@id/addCommentFragment" />
-=======
-            android:name="uid"
-            app:argType="string" />
->>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
+
+
     </fragment>
     <fragment
         android:id="@+id/addCommentFragment"
         android:name="com.misiontic2022.technodevices.view.ui.fragments.AddCommentFragment"
         android:label="add_comment_fragment"
-        tools:layout="@layout/add_comment_fragment"
-        />
+        tools:layout="@layout/add_comment_fragment">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

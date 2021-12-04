@@ -48,14 +48,11 @@ class OrderDetailDialogFragment : Fragment(R.layout.fragment_order_detail_dialog
         binding.tvProductTitle.text = args.title
         binding.tvProductPrice.text = args.price
         binding.tvProductDescription.text = args.description
-
-<<<<<<< HEAD
-=======
-                }
+    }
 
 
-    private fun getSellerData(uid:String = args.uid) {
-        viewModelProfileData.getProfileSellerData(uid).observe(viewLifecycleOwner, {result->
+    private fun getSellerData(uid: String = args.uid) {
+        viewModelProfileData.getProfileSellerData(uid).observe(viewLifecycleOwner, { result ->
             when (result) {
                 is Result.Loading -> {
                 }
@@ -70,6 +67,6 @@ class OrderDetailDialogFragment : Fragment(R.layout.fragment_order_detail_dialog
                 }
             }
         })
->>>>>>> e12793649ba9085a259f4f9d6472cf158eb48bc6
+
     }
 }
