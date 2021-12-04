@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.misiontic2022.technodevices.R
 import com.misiontic2022.technodevices.databinding.FragmentHomeBinding
 import com.misiontic2022.technodevices.model.models.Product
@@ -48,9 +49,16 @@ class HomeFragment : Fragment(R.layout.fragment_home),ProductAdapter.OnProductCl
             }
         })
         binding.carouselProduct.addData(list)
+
+        binding.btnProductDetails.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_orderDetailDialogFragment)
+        }
     }
 
     override fun onProductClick(product: Product) {
+        Log.d("Movie","onProductClick: $product")
+        val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailDialogFragment(product.photo,product.title,product.price,product.description)
+        findNavController().navigate(action)
     }
 
 }

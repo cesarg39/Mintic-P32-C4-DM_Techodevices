@@ -57,6 +57,14 @@
         app:showNavigationButtons="false"
         app:showTopShadow="false" />
 
+    <Button
+        android:id="@+id/btn_product_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalles"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="526dp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_products"
@@ -69,7 +77,11 @@
         app:layout_constraintVertical_bias="0.0"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
+
+
     </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
+
+

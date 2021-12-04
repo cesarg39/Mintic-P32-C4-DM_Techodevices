@@ -29,4 +29,8 @@
     <string name="password">contraseña</string>
     <string name="sign_in">Iniciar sesión</string>
     <string name="SignUpText">¿No tiene una cuenta? Registrarse</string>
+    <string name="tv_price">$ 999.999</string>
+    <string name="tv_product_title">Producto</string>
+    <string name="tv_product_price">999.999</string>
+    <string name="addComments">Añadir comentario</string>
 </resources>

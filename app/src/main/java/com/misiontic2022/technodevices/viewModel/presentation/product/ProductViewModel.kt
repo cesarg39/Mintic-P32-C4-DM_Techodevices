@@ -36,6 +36,15 @@ class ProductViewModel(private val repo: ProductRepo) : ViewModel() {
             emit(Result.Failure(e))
         }
     }
+
+    fun getProductData() = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(Result.Success(repo.getProductData()))
+        } catch (e: Exception) {
+            emit(Result.Failure(e))
+        }
+    }
 }
 
 

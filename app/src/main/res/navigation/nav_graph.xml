@@ -13,8 +13,8 @@
             android:id="@+id/action_homeFragment_to_createProductFragment"
             app:destination="@id/createProductFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_orderDetailFragmentDialog"
-            app:destination="@id/orderDetailFragmentDialog" />
+            android:id="@+id/action_homeFragment_to_orderDetailDialogFragment"
+            app:destination="@id/orderDetailDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/createProductFragment"
@@ -37,12 +37,6 @@
             android:id="@+id/action_adminFragment_to_adminDetailDialogFragment"
             app:destination="@id/adminDetailDialogFragment" />
     </fragment>
-
-    <dialog
-        android:id="@+id/orderDetailFragmentDialog"
-        android:name="com.misiontic2022.technodevices.view.ui.fragments.OrderDetailDialogFragment"
-        android:label="OrderDetailFragmentDialog"
-        tools:layout="@layout/fragment_order_detail_dialog"/>
 
     <dialog
         android:id="@+id/commentsDetailFragmentDialog"
@@ -86,5 +80,23 @@
         android:name="com.misiontic2022.technodevices.view.ui.fragments.MapsLocationFragment"
         android:label="fragment_maps_location"
         tools:layout="@layout/fragment_maps_location" />
+    <fragment
+        android:id="@+id/orderDetailDialogFragment"
+        android:name="com.misiontic2022.technodevices.view.ui.fragments.OrderDetailDialogFragment"
+        android:label="OrderDetailDialogFragment"
+        tools:layout="@layout/fragment_order_detail_dialog">
+        <argument
+            android:name="photo"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

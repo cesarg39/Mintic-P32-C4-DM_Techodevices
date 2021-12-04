@@ -10,6 +10,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.misiontic2022.technodevices.model.models.Product
 import kotlinx.coroutines.tasks.await
 import com.misiontic2022.technodevices.core.Result
+import com.misiontic2022.technodevices.model.models.User
 import kotlinx.coroutines.currentCoroutineContext
 import java.io.ByteArrayOutputStream
 import java.util.*
@@ -67,5 +68,21 @@ class ProductDataSource {
         for (product in snapshot!!) {
             product.reference.delete()
         }
+    }
+
+    suspend fun getProductData(): Product {
+        val user = FirebaseAuth.getInstance().currentUser
+        val product: Product = Product()
+        user?.let {
+            val snapshot = FirebaseFirestore.getInstance().collection("products")
+                .whereEqualTo("title", "xiaomi 2").get().await()
+            for (producto in snapshot!!) {
+                product.photo = producto.getString("photo")!!
+                product.title = producto.getString("title")!!
+                product.price = producto.getString("price")!!
+                product.description = producto.getString("description")!!
+            }
+        }
+        return product
     }
 }
