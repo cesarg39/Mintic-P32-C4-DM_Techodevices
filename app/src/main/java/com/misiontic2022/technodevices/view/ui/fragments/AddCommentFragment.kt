@@ -9,7 +9,7 @@ import com.misiontic2022.technodevices.databinding.FragmentAddProductBinding
 class AddCommentFragment : Fragment(R.layout.add_comment_fragment) {
 
     private lateinit var binding: FragmentAddProductBinding
-    private val args:
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
