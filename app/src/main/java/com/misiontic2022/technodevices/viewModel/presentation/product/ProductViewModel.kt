@@ -37,14 +37,25 @@ class ProductViewModel(private val repo: ProductRepo) : ViewModel() {
         }
     }
 
-    fun getProductData() = liveData(Dispatchers.IO) {
+    fun getProductData(productId: String) = liveData(Dispatchers.IO) {
         emit(Result.Loading())
         try {
-            emit(Result.Success(repo.getProductData()))
+            emit(Result.Success(repo.getProductData(productId)))
         } catch (e: Exception) {
             emit(Result.Failure(e))
         }
     }
+
+    fun setProductData(imageBitmap: Bitmap, product: Product) = liveData(Dispatchers.IO){
+        emit(Result.Loading())
+
+        try{
+            emit(Result.Success(repo.setProductData(imageBitmap, product)))
+        }catch (e: Exception){
+            emit(Result.Failure(e))
+    }
+    }
+
 }
 
 

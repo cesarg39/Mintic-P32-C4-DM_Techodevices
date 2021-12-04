@@ -20,8 +20,7 @@ import com.misiontic2022.technodevices.viewModel.presentation.product.ProductVie
 import com.misiontic2022.technodevices.viewModel.presentation.product.ProductViewModelFactory
 
 
-class CreateProductFragment : Fragment(R.layout.fragment_create_product),
-    MyProductsAdapter.OnProductClickListener {
+class CreateProductFragment : Fragment(R.layout.fragment_create_product), MyProductsAdapter.OnProductClickListener {
     private lateinit var binding: FragmentCreateProductBinding
     private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(ProductRepoImpl(ProductDataSource()))
@@ -34,6 +33,7 @@ class CreateProductFragment : Fragment(R.layout.fragment_create_product),
         binding.buttonAddProduct.setOnClickListener {
             findNavController().navigate(R.id.action_createProductFragment_to_addProductFragment)
         }
+
     }
 
     private fun showInfo() {
@@ -78,6 +78,8 @@ class CreateProductFragment : Fragment(R.layout.fragment_create_product),
                     }
                 }
             })
+        }else if  (action == 2) {
+            findNavController().navigate(R.id.action_createProductFragment_to_editProductFragment)
         }
     }
 }

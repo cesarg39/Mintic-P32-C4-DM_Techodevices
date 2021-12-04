@@ -8,5 +8,6 @@ interface ProductRepo {
     suspend fun  getLatestProduct(myProducts: Boolean): Result<List<Product>>
     suspend fun addProduct(imageBitmap: Bitmap, product: Product)
     suspend fun deleteProduct(product: Product)
-    suspend fun getProductData(): Product
+    suspend fun getProductData(productId: String): Product
+    suspend fun setProductData(imageBitmap: Bitmap, product:Product)
 }

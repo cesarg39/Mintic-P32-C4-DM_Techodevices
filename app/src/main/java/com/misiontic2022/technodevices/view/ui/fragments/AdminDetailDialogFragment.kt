@@ -29,6 +29,7 @@ class AdminDetailDialogFragment : Fragment(R.layout.fragment_admin_detail_dialog
     private lateinit var binding: FragmentAdminDetailDialogBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding = FragmentAdminDetailDialogBinding.bind(view)
 
         getData()

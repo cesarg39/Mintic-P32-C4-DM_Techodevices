@@ -51,6 +51,9 @@ class MyProductsAdapter(
             binding.buttonDelete.setOnClickListener {
                 itemClickListener.onProductClick(productList[absoluteAdapterPosition],1)
             }
+            binding.buttonEdit.setOnClickListener {
+                itemClickListener.onProductClick(productList[absoluteAdapterPosition],2)
+            }
         }
     }
 }

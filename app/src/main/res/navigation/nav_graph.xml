@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_createProductFragment_to_addProductFragment"
             app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_createProductFragment_to_editProductFragment"
+            app:destination="@id/editProductFragment" />
     </fragment>
     <fragment
         android:id="@+id/adminFragment"
@@ -98,5 +101,9 @@
             android:name="description"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/editProductFragment"
+        android:name="com.misiontic2022.technodevices.view.ui.fragments.EditProductFragment"
+        android:label="EditProductFragment" />
 
 </navigation>

@@ -17,6 +17,7 @@ import java.util.*
 import kotlin.coroutines.coroutineContext
 
 class ProductDataSource {
+
     suspend fun getLatestProduct(myProducts: Boolean): Result<List<Product>> {
         val productList = mutableListOf<Product>()
         var querySnapshot: QuerySnapshot? = null
@@ -70,19 +71,40 @@ class ProductDataSource {
         }
     }
 
-    suspend fun getProductData(): Product {
+    suspend fun getProductData(productId: String): Product {
         val user = FirebaseAuth.getInstance().currentUser
         val product: Product = Product()
         user?.let {
-            val snapshot = FirebaseFirestore.getInstance().collection("products")
-                .whereEqualTo("title", "xiaomi 2").get().await()
-            for (producto in snapshot!!) {
-                product.photo = producto.getString("photo")!!
-                product.title = producto.getString("title")!!
-                product.price = producto.getString("price")!!
-                product.description = producto.getString("description")!!
-            }
+            val querySnapShot = FirebaseFirestore.getInstance().collection("products").whereEqualTo("uid", user.uid).get().await()?.let {
+                    /*if (it.exists()) {
+                        //product.photo = it.getString("photo")!!
+                        /*
+                        product.title = querySna
+                        product.price = it.getString("price")!!
+                        product.description = it.getString("description")!!
+                        */
+                    }
+                    */
+
+                }
         }
         return product
     }
+    suspend fun setProductData(imageBitmap: Bitmap, product:Product) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val randomName = UUID.randomUUID().toString()
+        val imageRef = FirebaseStorage.getInstance().reference.child("${user?.uid}/products/$randomName")
+        val baos = ByteArrayOutputStream()
+        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
+        val downloadUrl = imageRef.putBytes(baos.toByteArray()).await().storage.downloadUrl.await().toString()
+
+        product.photo = downloadUrl
+
+        user?.let {
+            FirebaseFirestore.getInstance().collection("products").document(product.id)
+                .set(product).await()
+        }
+    }
 }
+
+

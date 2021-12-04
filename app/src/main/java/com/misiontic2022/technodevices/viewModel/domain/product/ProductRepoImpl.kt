@@ -10,5 +10,7 @@ class ProductRepoImpl(private val dataSource: ProductDataSource):ProductRepo {
     override suspend fun getLatestProduct(myProducts: Boolean): Result<List<Product>> = dataSource.getLatestProduct(myProducts)
     override suspend fun addProduct(imageBitmap: Bitmap, product: Product) = dataSource.addProduct(imageBitmap,product)
     override suspend fun deleteProduct(product: Product) = dataSource.deleteProduct(product)
-    override suspend fun getProductData(): Product  = dataSource.getProductData()
+    override suspend fun getProductData(productId: String): Product  = dataSource.getProductData(productId)
+    override suspend fun setProductData(imageBitmap: Bitmap, product: Product) = dataSource.setProductData(imageBitmap, product)
+
 }
