@@ -18,6 +18,15 @@ class ProfileViewModel (private val repo: ProfileRepo) : ViewModel() {
         }
     }
 
+    fun getProfileSellerData(uid:String?) = liveData(Dispatchers.IO) {
+        emit(Result.Loading())
+        try {
+            emit(Result.Success(repo.getProfileSellerData(uid)))
+        } catch (e: Exception) {
+            emit(Result.Failure(e))
+        }
+    }
+
     fun setProfileData(profile: User) = liveData(Dispatchers.IO) {
         emit(Result.Loading())
         try {

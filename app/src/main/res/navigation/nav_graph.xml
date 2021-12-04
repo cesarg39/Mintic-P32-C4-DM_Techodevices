@@ -97,6 +97,9 @@
         <argument
             android:name="description"
             app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
     </fragment>
 
 </navigation>
