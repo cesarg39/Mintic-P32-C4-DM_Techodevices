@@ -33,4 +33,5 @@
     <string name="tv_product_title">Producto</string>
     <string name="tv_product_price">999.999</string>
     <string name="addComments">Añadir comentario</string>
+    <string name="tv_description_title">Descripción</string>
 </resources>
